@@ -1,13 +1,28 @@
-let companies = ["Bloomberg", "Microsoft", "Uber", "Google", "IBM", "Netflix"];
+<!doctype html>
+<meta charset="utf-8">
+<pre id="out"></pre>
+<script>
+  // initial array
+  let companies = ["Bloomberg", "Microsoft", "Uber", "Google", "IBM", "Netflix"];
+  const log = [];
 
-// a) remove first
-companies.shift();
+  log.push("Initial: " + companies.join(", "));
 
-// b) replace Uber with Ola (remove + insert at same spot)
-companies.splice(companies.indexOf("Uber"), 1, "Ola");
+  // a) remove the first company
+  companies.shift();
+  log.push("After removing first: " + companies.join(", "));
 
-// c) add Amazon at the end
-companies.push("Amazon");
+  // b) replace Uber with Ola
+  const i = companies.indexOf("Uber");
+  if (i !== -1) companies.splice(i, 1, "Ola");
+  log.push("After replacing Uber → Ola: " + companies.join(", "));
 
-console.log(companies); 
-// ["Microsoft", "Ola", "Google", "IBM", "Netflix", "Amazon"]
+  // c) add Amazon at the end
+  companies.push("Amazon");
+  log.push("After adding Amazon: " + companies.join(", "));
+
+  document.getElementById("out").textContent = log.join("\n");
+  console.log("Final array:", companies);
+</script>
+</html>
+
