@@ -1,0 +1,13 @@
+let companies = ["Bloomberg", "Microsoft", "Uber", "Google", "IBM", "Netflix"];
+
+// a) remove first
+companies.shift();
+
+// b) replace Uber with Ola (remove + insert at same spot)
+companies.splice(companies.indexOf("Uber"), 1, "Ola");
+
+// c) add Amazon at the end
+companies.push("Amazon");
+
+console.log(companies); 
+// ["Microsoft", "Ola", "Google", "IBM", "Netflix", "Amazon"]
